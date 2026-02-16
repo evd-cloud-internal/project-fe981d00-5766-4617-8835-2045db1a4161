@@ -97,6 +97,10 @@ type: page
     value="sum(cases_shipped) as 'Cases'"
     filters=["vendor_dropdown"]
     inner_radius="0"
+    date_range={
+        range="{{calendar_filter}}"
+        date="week_start_date"
+    }
 /%}
 {% combo_chart
     data="adusa_spins"
