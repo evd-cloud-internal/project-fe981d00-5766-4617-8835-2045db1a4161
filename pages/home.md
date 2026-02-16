@@ -4,7 +4,7 @@ assetId: c69939e6-c601-4c11-9b9e-45f8ad027b9b
 type: page
 ---
 
-# ADUSA Spins
+# {% logo domain="adusa.com" size="lg" /%} ADUSA Spins
 
 {% dropdown
     id="vendor_dropdown"
