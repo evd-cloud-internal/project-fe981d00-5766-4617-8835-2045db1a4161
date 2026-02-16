@@ -25,12 +25,21 @@ type: page
 /%}
 
 {% dropdown
+    id="division_dropdown"
+    data="adusa_spins"
+    title="ADUSA Brand"
+    value_column="division"
+    placeholder="Select ADUSA Brand"
+    filters=["vendor_dropdown"]
+/%}
+
+{% dropdown
     id="facility_dropdown"
     data="adusa_spins"
     value_column="facility_description"
     placeholder="Select Facility"
     title="Facility"
-    filters=["vendor_dropdown"]
+    filters=["vendor_dropdown", "division_dropdown"]
 /%}
 
 {% big_value
@@ -49,7 +58,7 @@ type: page
         type="area"
         x="week_start_date"
     }
-    filters=["vendor_dropdown","facility_dropdown"]
+    filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     date_range={
         range="{{calendar_filter}}"
         date="week_start_date"
@@ -72,7 +81,7 @@ type: page
         type="area"
         x="week_start_date"
     }
-    filters=["vendor_dropdown","facility_dropdown"]
+    filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     date_range={
         range="{{calendar_filter}}"
         date="week_start_date"
@@ -83,19 +92,19 @@ type: page
 {% pie_chart
     data="adusa_spins"
     title="Cases by Facility"
-    subtitle="{{vendor_dropdown.label}}"
+    subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     category="facility_description"
     value="sum(cases_shipped) as 'Cases'"
-    filters=["vendor_dropdown"]
+    filters=["vendor_dropdown","division_dropdown"]
     inner_radius="0"
 /%}
 
 {% combo_chart
     data="adusa_spins"
     title="Cases by Week"
-    subtitle="{{vendor_dropdown.label}}"
+    subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     x="week_start_date"
-    filters=["vendor_dropdown","facility_dropdown"]
+    filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     date_range={
         range="{{calendar_filter}}"
         date="week_start_date"
@@ -124,8 +133,8 @@ type: page
 {% table
     data="adusa_spins"
     title="Facility Detail"
-    subtitle="{{vendor_dropdown.label}}"
-    filters=["vendor_dropdown","facility_dropdown"]
+    subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
+    filters=["vendor_dropdown","division_dropdown"]
     order="sum(cases_shipped) desc"
     date_range={
         range="{{calendar_filter}}"
@@ -182,8 +191,8 @@ type: page
 {% table
     data="adusa_spins"
     title="Item Detail"
-    subtitle="{{vendor_dropdown.label}}"
-    filters=["vendor_dropdown","facility_dropdown"]
+    subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
+    filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     order="sum(cases_shipped) desc"
     date_range={
         range="{{calendar_filter}}"
