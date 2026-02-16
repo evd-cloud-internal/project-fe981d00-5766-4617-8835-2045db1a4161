@@ -88,7 +88,7 @@ type: page
     }
 /%}
 
-{% row card=true %}
+{% row %}
 {% pie_chart
     data="adusa_spins"
     title="Cases by Brand"
@@ -101,6 +101,7 @@ type: page
         range="{{calendar_filter}}"
         date="week_start_date"
     }
+    width=40
 /%}
 {% combo_chart
     data="adusa_spins"
