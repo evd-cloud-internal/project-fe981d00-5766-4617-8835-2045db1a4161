@@ -311,6 +311,7 @@ type: page
 {% table
     data="adusa_spins"
     title="Item Detail"
+
     subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     order="sum(cases_shipped) desc"
