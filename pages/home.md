@@ -214,6 +214,44 @@ type: page
 
 {% table
     data="adusa_spins"
+    title="Cases by Week by Product"
+    subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
+    filters=["vendor_dropdown","division_dropdown"]
+    order="sum(cases_shipped) desc"
+    date_range={
+        range="year to date"
+        date="week_start_date"
+    }
+    total_position="top"
+%}
+{% pivot
+    value="week_start_date"
+    date_grain="quarter of year"
+/%}
+{% pivot
+    value="week_start_date"
+    date_grain="week"
+    fmt="shortdate"
+/%}
+{% dimension
+    value="item_description_full"
+    title="Product"
+/%}
+{% measure
+    value="sum(cases_shipped) as cases"
+    fmt="num0"
+    sort="desc"
+/%}
+{% measure
+    value="(sum(cases_shipped) - sum(cases_shipped_year_ago)) / nullIf(sum(cases_shipped_year_ago), 0) as cases_yoy_pct"
+    title="vs YA %"
+    fmt="pct1"
+    viz="delta"
+/%}
+{% /table %}
+
+{% table
+    data="adusa_spins"
     title="Facility Detail"
     subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     filters=["vendor_dropdown","division_dropdown"]
