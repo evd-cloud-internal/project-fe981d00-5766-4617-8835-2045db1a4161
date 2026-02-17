@@ -214,7 +214,8 @@ type: page
 
 {% table
     data="adusa_spins"
-    title="Cases by Week by Product"
+    title="Cases by Week Start Date by Product"
+    freeze_columns=1
     subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     filters=["vendor_dropdown","division_dropdown"]
     order="sum(cases_shipped) desc"
@@ -311,7 +312,7 @@ type: page
 {% table
     data="adusa_spins"
     title="Item Detail"
-
+    freeze_columns=1
     subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     filters=["vendor_dropdown","division_dropdown","facility_dropdown"]
     order="sum(cases_shipped) desc"
