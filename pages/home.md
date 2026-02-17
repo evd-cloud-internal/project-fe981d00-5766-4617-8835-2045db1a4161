@@ -214,7 +214,7 @@ type: page
 
 {% table
     data="adusa_spins"
-    title="Cases by Week Start Date by Product"
+    title="Cases by Week Start Date by Product (Year to Date)"
     freeze_columns=1
     subtitle="{{vendor_dropdown.label}} {{division_dropdown.label}}"
     filters=["vendor_dropdown","division_dropdown"]
