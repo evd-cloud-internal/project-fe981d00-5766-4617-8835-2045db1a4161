@@ -102,6 +102,7 @@ type: page
         date="week_start_date"
     }
     width=40
+    height=300
 /%}
 {% combo_chart
     data="adusa_spins"
