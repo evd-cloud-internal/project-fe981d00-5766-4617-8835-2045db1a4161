@@ -24,12 +24,11 @@ type: page
     default_range="year to date"
 /%}
 
-{% dropdown
+{% button_group
     id="division_dropdown"
     data="adusa_spins"
     title="ADUSA Brand"
     value_column="division"
-    placeholder="Select ADUSA Brand"
     filters=["vendor_dropdown"]
 /%}
 
