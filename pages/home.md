@@ -54,7 +54,7 @@ type: page
 /%}
 
 {% callout type="info" title="Time Period"%}
-{% value data="adusa_spins" value="min(week_start_date)" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%} to {% value data="adusa_spins" value="max(week_start_date) + 6" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%}. {{vendor_dropdown.label}} has **{% value data="adusa_spins" value="count(distinct week_start_date)" filters=["vendor_dropdown"] fmt="num0" /%}** weeks of data available.
+{% value data="adusa_spins" value="min(week_start_date)" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%} to {% value data="adusa_spins" value="max(week_start_date) + 6" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%} ({% value data="adusa_spins" value="count(distinct week_start_date)" filters=["vendor_dropdown"] fmt="num0" date_range={date="week_start_date" range="{{calendar_filter}}"} /%} Weeks). {{vendor_dropdown.label}} has {% value data="adusa_spins" value="count(distinct week_start_date)" filters=["vendor_dropdown"] fmt="num0" /%} weeks of data available.
 {% /callout %}
 
 {% big_value
