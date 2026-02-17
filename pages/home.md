@@ -39,6 +39,7 @@ type: page
     placeholder="Select Facility"
     title="Facility"
     filters=["vendor_dropdown", "division_dropdown"]
+    search=false
 /%}
 
 {% big_value
