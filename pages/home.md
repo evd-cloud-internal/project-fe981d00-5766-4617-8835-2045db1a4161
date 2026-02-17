@@ -42,6 +42,21 @@ type: page
     search=false
 /%}
 
+{% dropdown
+    id="product_dropdown"
+    data="adusa_spins"
+    value_column="item_description_full"
+    title="Product"
+    search=true
+    multiple=true
+    filters=["vendor_dropdown", "division_dropdown", "facility_dropdown"]
+    placeholder="Select Product"
+/%}
+
+{% callout type="info" title="Time Period"%}
+{% value data="adusa_spins" value="min(week_start_date)" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%} to {% value data="adusa_spins" value="max(week_start_date) + 6" filters=["vendor_dropdown"] date_range={date="week_start_date" range="{{calendar_filter}}"} fmt="longdate" /%}. {{vendor_dropdown.label}} has **{% value data="adusa_spins" value="count(distinct week_start_date)" filters=["vendor_dropdown"] fmt="num0" /%}** weeks of data available.
+{% /callout %}
+
 {% big_value
     data="adusa_spins"
     value="sum(cases_shipped) as 'Cases'"
