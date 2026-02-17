@@ -149,6 +149,10 @@ type: page
 {% dimension
     value="division"
     title="ADUSA Brand"
+    logo="adusa_brand_logo"
+    logo_options={
+        size="lg"
+    }
 /%}
 {% measure
     value="sum(cases_shipped) as cases"
