@@ -325,8 +325,12 @@ type: page
     repeat_values=true
 %}
 {% dimension
-    value="item_description_full"
+    value="item_description"
     title="Description"
+/%}
+{% dimension
+    value="upc"
+    title="UPC"
 /%}
 {% dimension
     value="adusa_item_number"
